@@ -1,0 +1,16 @@
+//
+   Created by logosprog on 23.11.13.
+
+extends ../layout
+block content
+    H3 Edit Customer
+    form(id='form', method='post', action='/customer/#{customer.id}')
+        input(type='hidden', name='_method', value='put')
+        input(type='hidden', name='id', value='#{customer.id}')
+        label(for='Name') Name
+        input(type='text', id='name', name='name', value='#{customer.name}')
+        label(for='Email') Email
+        input(type='email', id='email', name='email', value='#{customer.email}')
+        label(for='Telephone') Telephone
+        input(type='tel', id='telephone', name='telephone', value='#{customer.telephone}')
+        input(type='submit', value='Edit Customer')

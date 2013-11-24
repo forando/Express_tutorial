@@ -1,0 +1,20 @@
+//
+   Created by logosprog on 23.11.13.
+extends layout
+block content
+        h1 Jade View Engine
+        p
+            |This is multi
+            |line text
+        h2 Element support
+        div#elements Apart from paragraph it also supports containers
+        #other_elements
+            |In fact I don't even need to use div prefix for it
+        .items Divs can have classes too
+        - var env = 'dev';
+        - if (env == "dev"){
+            p We are in dev environment
+        - } else {
+            p We are in prod environment
+        - }
+

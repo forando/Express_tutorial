@@ -1,0 +1,16 @@
+//
+   Created by logosprog on 23.11.13.
+
+extends ../layout
+block content
+    H3 Add New Customer
+    form(id='form', method='post', action='/customer/create', enctype="multipart/form-data")
+        label(for='name') Name
+        input(type='text', id='name', name='name')
+        label(for='email') Email
+        input(type='email', id='email', name='email')
+        label(for='telephone') Telephone
+        input(type='tel', id='telephone', name='telephone')
+        label(for='picture') Picture
+        input(type='file', id='picture', name='picture')
+        input(type='submit', value='Add Customer')

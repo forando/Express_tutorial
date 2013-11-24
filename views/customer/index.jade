@@ -1,0 +1,42 @@
+//
+   Created by logosprog on 23.11.13.
+
+extends ../layout
+block content
+    h3 List of Customers
+    - console.log(customers);
+    table(class='gridtable')
+        tr
+            th Id
+            th Name
+            th Email
+            th Telephone
+            th Edit
+            th Delete
+        each item in customers
+            tr
+                td
+                    a(href='/customer/#{item.id}') #{item.id}
+                    td #{item.name}
+                    td #{item.email}
+                    td #{item.telephone}
+                    td
+                        a(href='/customer/edit/#{item.id}') Edit
+                    td
+                        a(href='#/#{item.id}', class='deleteItem', id='#{item.id}') Delete
+    p
+    #menu
+        a(href='/customer/create') Add new customer
+    script(src='/javascripts/jquery.min.js', type='text/javascript')
+    //script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+
+    script
+        $('a.deleteItem').click(function(){
+          var id = $(this).attr('id');
+          deleteItem(id);
+          document.location = '/customer';
+        });
+        function deleteItem(id){
+            console.log("Clicked");
+            $.ajax({url: '/customer/' + id, type: "DELETE", success: function(data, textStatus, jqXHR) { console.dir(data); }});
+        }
